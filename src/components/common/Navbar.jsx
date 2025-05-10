@@ -26,8 +26,8 @@ const Navbar = () => {
   const navItems = [
     { label: 'Home', href: 'https://kalasakt.com/' },
     {
-      label: 'About Us',
-      href: 'https://kalasakt.com/about-us/',
+      label: 'About',
+      href: '/about',
       subItems: [
         { label: 'Our Team', href: 'https://kalasakt.com/our-team/' }
       ]
@@ -36,7 +36,7 @@ const Navbar = () => {
     { label: 'Gallery', href: 'https://kalasakt.com/gallery/' },
     { label: 'Announcement', href: 'https://kalasakt.com/announcement/' },
     { label: 'Blogs', href: 'https://kalasakt.com/blogs/' },
-    { label: 'Contact Us', href: 'https://kalasakt.com/contacts/' },
+    { label: 'Contact', href: 'https://kalasakt.com/contacts/' },
   ];
 
   return (
@@ -52,8 +52,8 @@ const Navbar = () => {
           zIndex={10}
           color="white"
           align="center"
-          px={8}
-          py={4}
+          px={[8, 16, 32]}
+          py={6}
           bg="transparent"
         >
           {/* Logo */}
@@ -62,16 +62,16 @@ const Navbar = () => {
               <Image
                 src={logo}
                 alt="Kalasakt Cultural Foundation"
-                maxW="150px"
+                maxW="160px"
               />
             </Link>
           </Box>
 
           {/* Main Menu */}
           <Box flex="2">
-            <List display="flex" justifyContent="center" gap={6}>
+            <List display="flex" justifyContent="center" gap={8}>
               {navItems.map((item) => (
-                <ListItem key={item.label} position="relative">
+                <ListItem key={item.label} position="relative" p={2}>
                   {item.subItems ? (
                     <Box _hover={{ '.submenu': { display: 'block' } }}>
                       <Link href={item.href}>{item.label}</Link>
@@ -79,10 +79,9 @@ const Navbar = () => {
                         className="submenu"
                         display="none"
                         position="absolute"
-                        bg="rgba(0,0,0,0.7)"
+                        bg="#402323"
                         p={2}
                         minW="150px"
-                        borderRadius="md"
                       >
                         {item.subItems.map((subItem) => (
                           <ListItem key={subItem.label} p={1}>
@@ -141,7 +140,7 @@ const Navbar = () => {
           {/* Drawer */}
           <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
             <DrawerOverlay />
-            <DrawerContent bg="rgba(0,0,0,0.9)" zIndex={20}>
+            <DrawerContent bg="transparent" zIndex={20}>
               <DrawerCloseButton color="white" />
               <DrawerHeader borderBottomWidth="1px" color="white">
                 Menu
@@ -149,7 +148,7 @@ const Navbar = () => {
               <DrawerBody>
                 <Stack spacing={4}>
                   {navItems.map((item) => (
-                    <Box key={item.label}>
+                    <Box key={item.label} p={1}>
                       <Link
                         href={item.href}
                         display="block"

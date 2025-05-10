@@ -1,16 +1,16 @@
 import React from 'react'
 import Navbar from '../components/common/Navbar'
-import SliderComponent from '../components/SliderComponent'
+import AboutUs from '../components/AboutUs'
 import Footer from '../components/common/Footer'
 
-function HomePage() {
+function AboutPage() {
   return (
     <>
       <Navbar/>
-      <SliderComponent/>
+      <AboutUs/>
       <Footer/>
     </>
   )
 }
 
-export default HomePage
+export default AboutPage
