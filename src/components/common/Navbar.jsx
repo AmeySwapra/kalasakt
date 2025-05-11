@@ -19,24 +19,27 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import logo from '../../assets/logo/logo.webp';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   const navItems = [
-    { label: 'Home', href: 'https://kalasakt.com/' },
+    { label: 'Home', href: '/' },
     {
       label: 'About',
       href: '/about',
       subItems: [
-        { label: 'Our Team', href: 'https://kalasakt.com/our-team/' }
+        { label: 'Our Team', href: '/our-team' }
       ]
     },
-    { label: 'Events', href: 'https://kalasakt.com/event/' },
-    { label: 'Gallery', href: 'https://kalasakt.com/gallery/' },
-    { label: 'Announcement', href: 'https://kalasakt.com/announcement/' },
-    { label: 'Blogs', href: 'https://kalasakt.com/blogs/' },
-    { label: 'Contact', href: 'https://kalasakt.com/contacts/' },
+    { label: 'Events', href: '/event' },
+    { label: 'Gallery', href: '/gallery' },
+    { label: 'Announcement', href: '/announcement' },
+    { label: 'Blogs', href: '/blogs' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -45,24 +48,26 @@ const Navbar = () => {
       <Hide below="md">
         <Flex
           as="nav"
-          position="absolute"
+          position={isHomePage ? 'absolute' : 'static'}
           top={0}
           left={0}
           right={0}
           zIndex={10}
-          color="white"
+          color={isHomePage ? 'white' : 'black'}
           align="center"
           px={[8, 16, 32]}
           py={6}
-          bg="transparent"
+          bg={isHomePage ? 'transparent' : 'white'}
+          boxShadow={isHomePage ? 'none' : 'sm'}
         >
           {/* Logo */}
-          <Box flex="1">
+          <Box flex="1" mr={20}>
             <Link href="#">
               <Image
                 src={logo}
                 alt="Kalasakt Cultural Foundation"
                 maxW="160px"
+                
               />
             </Link>
           </Box>
@@ -74,24 +79,41 @@ const Navbar = () => {
                 <ListItem key={item.label} position="relative" p={2}>
                   {item.subItems ? (
                     <Box _hover={{ '.submenu': { display: 'block' } }}>
-                      <Link href={item.href}>{item.label}</Link>
+                      <Link 
+                        href={item.href}
+                        _hover={{ textDecoration: 'none', opacity: 0.8 }}
+                      >
+                        {item.label}
+                      </Link>
                       <List
                         className="submenu"
                         display="none"
                         position="absolute"
-                        bg="#402323"
+                        bg={isHomePage ? '#402323' : 'gray.50'}
                         p={2}
                         minW="150px"
+                        borderRadius="md"
+                        boxShadow="md"
                       >
                         {item.subItems.map((subItem) => (
                           <ListItem key={subItem.label} p={1}>
-                            <Link href={subItem.href}>{subItem.label}</Link>
+                            <Link 
+                              href={subItem.href}
+                              _hover={{ textDecoration: 'none', color: isHomePage ? 'gray.300' : 'gray.600' }}
+                            >
+                              {subItem.label}
+                            </Link>
                           </ListItem>
                         ))}
                       </List>
                     </Box>
                   ) : (
-                    <Link href={item.href}>{item.label}</Link>
+                    <Link 
+                      href={item.href}
+                      _hover={{ textDecoration: 'none', opacity: 0.8 }}
+                    >
+                      {item.label}
+                    </Link>
                   )}
                 </ListItem>
               ))}
@@ -107,24 +129,26 @@ const Navbar = () => {
       <Show below="md">
         <Flex
           as="nav"
-          position="absolute"
+          position={isHomePage ? 'absolute' : 'static'}
           top={0}
           left={0}
           right={0}
           zIndex={10}
-          color="white"
+          color={isHomePage ? 'white' : 'black'}
           align="center"
           justify="space-between"
           px={4}
           py={4}
-          bg="transparent"
+          bg={isHomePage ? 'transparent' : 'white'}
+          boxShadow={isHomePage ? 'none' : 'sm'}
         >
           {/* Logo */}
           <Link href="#">
             <Image
-              src="//kalasakt.com/wp-content/uploads/2024/01/kalasakt-main-logo.png"
+              src={logo}
               alt="Kalasakt Cultural Foundation"
               maxW="120px"
+              filter={isHomePage ? 'none' : 'brightness(0)'}
             />
           </Link>
 
@@ -133,16 +157,19 @@ const Navbar = () => {
             aria-label="Open menu"
             icon={<HamburgerIcon />}
             variant="outline"
-            colorScheme="whiteAlpha"
+            colorScheme={isHomePage ? 'whiteAlpha' : 'blackAlpha'}
             onClick={onOpen}
           />
 
           {/* Drawer */}
           <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
             <DrawerOverlay />
-            <DrawerContent bg="transparent" zIndex={20}>
-              <DrawerCloseButton color="white" />
-              <DrawerHeader borderBottomWidth="1px" color="white">
+            <DrawerContent bg={isHomePage ? 'rgba(0, 0, 0, 0.8)' : 'white'} zIndex={20}>
+              <DrawerCloseButton color={isHomePage ? 'white' : 'black'} />
+              <DrawerHeader 
+                borderBottomWidth="1px" 
+                color={isHomePage ? 'white' : 'black'}
+              >
                 Menu
               </DrawerHeader>
               <DrawerBody>
@@ -154,8 +181,9 @@ const Navbar = () => {
                         display="block"
                         py={2}
                         fontSize="lg"
-                        color="white"
+                        color={isHomePage ? 'white' : 'black'}
                         onClick={onClose}
+                        _hover={{ textDecoration: 'none', opacity: 0.8 }}
                       >
                         {item.label}
                       </Link>
@@ -167,8 +195,9 @@ const Navbar = () => {
                               href={subItem.href}
                               display="block"
                               py={1}
-                              color="white"
+                              color={isHomePage ? 'white' : 'black'}
                               onClick={onClose}
+                              _hover={{ textDecoration: 'none', opacity: 0.8 }}
                             >
                               {subItem.label}
                             </Link>

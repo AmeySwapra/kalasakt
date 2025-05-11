@@ -11,10 +11,11 @@ import {
   Icon,
 } from "@chakra-ui/react";
 import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import logo from '../../assets/logo/logo.webp'
 
 const Footer = () => {
   return (
-    <Box bg="gray.900" color="white" >
+    <Box bg="#270d0d" color="white" >
       <Container maxW="container.xl" py={20} px={[4,8,24]}>
         <Flex
           direction={{ base: "column", md: "row" }}
@@ -25,7 +26,7 @@ const Footer = () => {
           {/* Logo & Description */}
           <Box flex="1">
             <Image
-              src="https://kalasakt.com/wp-content/uploads/2024/01/kalasakt-main-logo.png"
+              src={logo}
               alt="Kalasakt Logo"
               maxW="180px"
               mb={4}
@@ -44,11 +45,11 @@ const Footer = () => {
               Quick Links
             </Heading>
             <VStack align="start" spacing={2}>
-              <Link href="/about-us">About Us</Link>
+              <Link href="/about">About Us</Link>
               <Link href="/announcement">Announcement</Link>
-              <Link href="/events/category/upcoming">Events</Link>
+              <Link href="/events">Events</Link>
               <Link href="/gallery">Gallery</Link>
-              <Link href="/contacts">Contact Us</Link>
+              <Link href="/contact">Contact Us</Link>
             </VStack>
           </Box>
 
@@ -63,20 +64,20 @@ const Footer = () => {
             </Text>
             <HStack spacing={4}>
               <Link
-                href="https://www.facebook.com/kalasaktculturalfoundation"
-                isExternal
+                href="#"
+               
               >
                 <Icon as={FaFacebook} boxSize={5} />
               </Link>
               <Link
-                href="https://www.instagram.com/kalasakt_cultural_foundation/"
-                isExternal
+                href="#"
+               
               >
                 <Icon as={FaInstagram} boxSize={5} />
               </Link>
               <Link
-                href="https://www.youtube.com/channel/UCDQ8FcVg-YHjABnG1alr9hg"
-                isExternal
+                href="#"
+               
               >
                 <Icon as={FaYoutube} boxSize={5} />
               </Link>
@@ -107,7 +108,7 @@ const Footer = () => {
       </Container>
 
       {/* Bottom Bar */}
-      <Box bg="gray.800" py={4} px={[4,8,20]}>
+      <Box bg="#270d0d" py={4} px={[4,8,20]}>
         <Container maxW="container.xl">
           <Flex
             direction={{ base: "column", md: "row" }}
@@ -117,12 +118,12 @@ const Footer = () => {
           >
             <Text fontSize="sm" textAlign="center">
               © {new Date().getFullYear()}{" "}
-              <Link href="https://kalasakt.com">Kalasakt Cultural Foundation</Link>. All Rights Reserved.
+              <Link href="#">Kalasakt Cultural Foundation</Link>. All Rights Reserved.
             </Text>
             <Text fontSize="sm" textAlign="center">
               Developed by{" "}
-              <Link href="https://www.craftycode.in" isExternal>
-                craftycode Web Studio
+              <Link href="#">
+                Swapra Technologies
               </Link>
             </Text>
           </Flex>
