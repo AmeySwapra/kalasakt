@@ -193,9 +193,9 @@ const ImageGridWithTabs = () => {
         {filters.map(filter => (
           <Button
             key={filter.id}
-            size="sm"
+            size="md"
             variant={activeFilter === filter.id ? 'solid' : 'outline'}
-            colorScheme={activeFilter === filter.id ? 'blue' : 'gray'}
+            colorScheme={activeFilter === filter.id ? 'yellow' : 'gray'}
             onClick={() => setActiveFilter(filter.id)}
           >
             {filter.label}

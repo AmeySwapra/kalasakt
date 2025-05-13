@@ -13,9 +13,9 @@ import {
 
 const AboutUs = () => {
   return (
-    <Box>
+    <Box bg="gray.50">
       {/* First Section */}
-      <Box bg="white" py={20}>
+      <Box py={20} px={[4, 8, 24]}>
         <Container maxW="container.lg">
           <Flex direction={{ base: "column", md: "row" }} gap={12}>
             {/* Left Column - Image */}
@@ -25,9 +25,20 @@ const AboutUs = () => {
                 alt="about us"
                 w="full"
                 h="auto"
+                borderRadius="lg"
+                boxShadow="lg"
               />
               <Box position="relative" mt={-20} textAlign="center">
-                <Heading as="h3" size="md" color="white" bg="black" px={4} py={2} display="inline-block">
+                <Heading 
+                  as="h3" 
+                  size="md" 
+                  color="white" 
+                  bg="teal.600" 
+                  px={4} 
+                  py={2} 
+                  display="inline-block"
+                  borderRadius="md"
+                >
                   Rhythms, Melodies, & Beyond
                 </Heading>
               </Box>
@@ -36,35 +47,40 @@ const AboutUs = () => {
             {/* Right Column - Content */}
             <Box flex={1}>
               <Box>
-                <Text fontSize="sm" color="gray.500" mb={2}>About Us</Text>
-                <Heading as="h1" size="xl" mb={6}>
+                <Text fontSize="sm" color="teal.600" mb={2} fontWeight="semibold">About Us</Text>
+                <Heading as="h1" size="xl" mb={6} color="gray.800">
                   Unveiling the Essence of Kalasakt Cultural Foundation
                 </Heading>
               </Box>
 
               <ChakraSpacer h={8} />
 
-              <Text mb={6}>
+              <Text mb={6} color="gray.600" lineHeight="tall">
                 Kalasakt Cultural Foundation, a non-profit company incorporated under the Companies Act 2013, is dedicated to the preservation, promotion, and celebration of India's rich cultural heritage. We recognize the importance of arts and cultural traditions that have shaped our society for millennia, and we are committed to fostering their continuation into the future.
               </Text>
 
               <ChakraSpacer h={8} />
 
-              <Heading as="h5" size="sm" mb={2}>
-                <Text as="span" fontWeight="normal" color="#270D0D" mr={4}>01.</Text> 
+              <Heading as="h5" size="sm" mb={2} color="gray.700">
+                <Text as="span" fontWeight="bold" color="teal.600" mr={4}>01.</Text> 
                 Tradition Innovated
               </Heading>
 
-              <Divider my={4} />
+              <Divider borderColor="teal.100" my={4} />
 
-              <Heading as="h5" size="sm" mb={8}>
-                <Text as="span" fontWeight="normal" color="#270D0D" mr={4}>02.</Text> 
+              <Heading as="h5" size="sm" mb={8} color="gray.700">
+                <Text as="span" fontWeight="bold" color="teal.600" mr={4}>02.</Text> 
                 Global Artistry
               </Heading>
 
               <ChakraSpacer h={8} />
 
-              <Button colorScheme="blue" size="lg">
+              <Button 
+                colorScheme="teal" 
+                size="lg" 
+                bg="teal.600"
+                _hover={{ bg: "teal.700" }}
+              >
                 View events
               </Button>
             </Box>
@@ -73,17 +89,17 @@ const AboutUs = () => {
       </Box>
 
       {/* What We Do Section */}
-      <Box bg="white" py={20}>
+      <Box bg="teal.50" py={20} px={[4, 8, 24]}>
         <Container maxW="container.lg">
           <Flex direction={{ base: "column", md: "row" }} gap={12} align="center">
             {/* Left Column - Content */}
             <Box flex={1}>
               <Box>
-                <Text fontSize="sm" color="gray.500" mb={2}>What We Do</Text>
-                <Heading as="h2" size="lg" mb={4}>
+                <Text fontSize="sm" color="teal.600" mb={2} fontWeight="semibold">What We Do</Text>
+                <Heading as="h2" size="lg" mb={4} color="gray.800">
                   The Impact of Kalasakt Cultural Foundation
                 </Heading>
-                <Text>
+                <Text color="gray.600" lineHeight="tall">
                   Through our diverse range of activities and initiatives, we strive to create opportunities for artists to showcase their talents, connect with audiences, and contribute to the cultural fabric of our society. From organizing live music events and cultural gatherings to promoting and encouraging emerging artists, we are committed to nurturing creativity and artistic expression.
                 </Text>
               </Box>
@@ -96,6 +112,8 @@ const AboutUs = () => {
                 alt="What we do"
                 w="full"
                 h="auto"
+                borderRadius="lg"
+                boxShadow="lg"
               />
             </Box>
           </Flex>
@@ -103,7 +121,7 @@ const AboutUs = () => {
       </Box>
 
       {/* Mission & Vision Section */}
-      <Box bg="white" py={20}>
+      <Box py={20} px={[4, 8, 24]}>
         <Container maxW="container.lg">
           <Flex direction={{ base: "column", md: "row" }} gap={12}>
             {/* Left Column - Mission */}
@@ -114,7 +132,8 @@ const AboutUs = () => {
                   alt="Mission"
                   w="full"
                   h="auto"
-                  borderRadius="md"
+                  borderRadius="lg"
+                  boxShadow="lg"
                 />
                 <Image
                   src="https://kalasakt.com/wp-content/uploads/2022/03/mandala.png"
@@ -129,11 +148,11 @@ const AboutUs = () => {
               </Box>
 
               <Box>
-                <Text fontSize="sm" color="gray.500" mb={2}>Our Mission</Text>
-                <Heading as="h2" size="lg" mb={4}>
+                <Text fontSize="sm" color="teal.600" mb={2} fontWeight="semibold">Our Mission</Text>
+                <Heading as="h2" size="lg" mb={4} color="gray.800">
                   Nurturing Talents, Preserving Traditions
                 </Heading>
-                <Text>
+                <Text color="gray.600" lineHeight="tall">
                   Our mission is to promote and support the arts and cultural traditions in India, both ancient and contemporary. We believe that the creation and participation in art are essential components of community development and expression.
                 </Text>
               </Box>
@@ -142,11 +161,11 @@ const AboutUs = () => {
             {/* Right Column - Vision */}
             <Box flex={1}>
               <Box mb={12}>
-                <Text fontSize="sm" color="gray.500" mb={2}>Our Vision</Text>
-                <Heading as="h2" size="lg" mb={4}>
+                <Text fontSize="sm" color="teal.600" mb={2} fontWeight="semibold">Our Vision</Text>
+                <Heading as="h2" size="lg" mb={4} color="gray.800">
                   Unveiling Cultural Brilliance
                 </Heading>
-                <Text>
+                <Text color="gray.600" lineHeight="tall">
                   Our vision is to create a vibrant cultural landscape where the arts thrive, artists are valued and celebrated, and cultural traditions are preserved and passed down for generations to come.
                 </Text>
               </Box>
@@ -162,7 +181,8 @@ const AboutUs = () => {
                 alt="Vision"
                 w="full"
                 h="auto"
-                borderRadius="md"
+                borderRadius="lg"
+                boxShadow="lg"
               />
             </Box>
           </Flex>

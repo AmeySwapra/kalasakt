@@ -35,7 +35,7 @@ const Navbar = () => {
         { label: 'Our Team', href: '/our-team' }
       ]
     },
-    { label: 'Events', href: '/event' },
+    { label: 'Events', href: '/events' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Announcement', href: '/announcement' },
     { label: 'Blogs', href: '/blogs' },
